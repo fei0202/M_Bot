@@ -1,17 +1,20 @@
-package frc.robot.commandFactory;
+package frc.robot.commands;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.Swerve;
 
-public class LimelightAprilTag extends Command {
+public class TeleopAprilTag extends Command {
     private final Swerve swerve;
     private final NetworkTable limelightTable;
-    public boolean left = true;
+    private final XboxController joystick2;
+    private boolean left = true;
 
-    public LimelightAprilTag(Swerve swerve) {
+    public TeleopAprilTag(Swerve swerve, XboxController joystick2) {
         this.swerve = swerve;
+        this.joystick2 = joystick2;
         limelightTable = NetworkTableInstance.getDefault().getTable("limelight");
         addRequirements(swerve);
     }
@@ -21,6 +24,11 @@ public class LimelightAprilTag extends Command {
         double tagId = limelightTable.getEntry("tid").getDouble(-1);
         double xOffset = limelightTable.getEntry("tx").getDouble(0);
         double yOffset = limelightTable.getEntry("ty").getDouble(0);
+
+        if (joystick2.getRawButtonPressed(0)) {
+            left = !left;
+            return;
+        }
 
         if (tagId != -1) {
             System.out.println("AprilTag ID: " + tagId);

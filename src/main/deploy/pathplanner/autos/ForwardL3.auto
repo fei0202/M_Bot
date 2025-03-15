@@ -11,9 +11,15 @@
           }
         },
         {
+          "type": "wait",
+          "data": {
+            "waitTime": 1.0
+          }
+        },
+        {
           "type": "named",
           "data": {
-            "name": "ForwardL1"
+            "name": "AprilTagDetection"
           }
         },
         {
@@ -23,27 +29,9 @@
           }
         },
         {
-          "type": "path",
-          "data": {
-            "pathName": "MF_CSL"
-          }
-        },
-        {
           "type": "named",
           "data": {
-            "name": "INTAKE"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 3.0
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "CSL_RA"
+            "name": "L3"
           }
         }
       ]

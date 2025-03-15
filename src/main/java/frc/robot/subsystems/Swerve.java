@@ -147,6 +147,12 @@ public class Swerve extends SubsystemBase {
         return states;
     }
 
+    public void stop() {
+        for (SwerveModule mod : modules) {
+            mod.setDesiredState(new SwerveModuleState(0, new Rotation2d(0)));
+        }
+    }
+
     public void setModuleStates(SwerveModuleState[] desiredStates) {
         if (desiredStates.length != 4) {
             throw new IllegalArgumentException("desiredStates must have length 4");

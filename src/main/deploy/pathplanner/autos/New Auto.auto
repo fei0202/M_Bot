@@ -7,43 +7,25 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Forward"
+            "pathName": "L_RJ"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "ForwardL1"
+            "name": "ChaseTag"
           }
         },
         {
           "type": "wait",
           "data": {
-            "waitTime": 0.5
+            "waitTime": 0.0
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "MF_CSL"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "INTAKE"
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 3.0
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "CSL_RA"
+            "pathName": "CSL_RJ_REVERSE"
           }
         }
       ]
