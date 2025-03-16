@@ -7,13 +7,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Forward"
+            "pathName": "L_RJ"
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "ForwardL1"
+            "name": "AprilTagDetection"
           }
         },
         {
@@ -23,9 +23,27 @@
           }
         },
         {
+          "type": "named",
+          "data": {
+            "name": "L4"
+          }
+        },
+        {
           "type": "path",
           "data": {
-            "pathName": "MF_CSL"
+            "pathName": "CSL_RJ_REVERSE"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "AprilTagDetection"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.5
           }
         },
         {
@@ -35,15 +53,15 @@
           }
         },
         {
-          "type": "wait",
+          "type": "path",
           "data": {
-            "waitTime": 3.0
+            "pathName": "CSL_RK"
           }
         },
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "CSL_RA"
+            "name": "L4"
           }
         }
       ]

@@ -1,6 +1,7 @@
 package frc.robot.subsystems;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import com.pathplanner.lib.commands.PathPlannerAuto;
 import com.pathplanner.lib.config.PIDConstants;
 import com.pathplanner.lib.config.RobotConfig;
 import com.pathplanner.lib.controllers.PPHolonomicDriveController;
@@ -96,10 +97,40 @@ public class Swerve extends SubsystemBase {
         }
     }
 
+    public void followPath(int index) {
+        System.out.println("Following path: " + index);
+        PathPlannerAuto autoPath = new PathPlannerAuto("Path" + index);
+        autoPath.schedule();
+    }
+
+    public void stop() {
+        System.out.println("Stopping Swerve movement.");
+        drive(new Translation2d(0, 0), 0, true);
+    }
+
+    // public void drive(Translation2d translation, double rotation, boolean
+    // fieldRelative) {
+    // System.out.println("Driving: X=" + translation.getX() + ", Y=" +
+    // translation.getY() + ", Rot=" + rotation);
+    // ChassisSpeeds chassisSpeeds = fieldRelative
+    // ? ChassisSpeeds.fromFieldRelativeSpeeds(translation.getX(),
+    // translation.getY(), rotation, getGyroYaw())
+    // : new ChassisSpeeds(translation.getX(), translation.getY(), rotation);
+    // SwerveModuleState[] moduleStates =
+    // kinematics.toSwerveModuleStates(chassisSpeeds);
+    // setModuleStates(moduleStates);
+    // }
+
     public void drive(Translation2d translation, double rotation, boolean fieldRelative) {
+        double maxSpeed = 3.0;
+        Translation2d limitedTranslation = translation.times(0.5);
+        double limitedRotation = rotation * 0.5;
+
         ChassisSpeeds chassisSpeeds = fieldRelative
-                ? ChassisSpeeds.fromFieldRelativeSpeeds(translation.getX(), translation.getY(), rotation, getGyroYaw())
-                : new ChassisSpeeds(translation.getX(), translation.getY(), rotation);
+                ? ChassisSpeeds.fromFieldRelativeSpeeds(limitedTranslation.getX(), limitedTranslation.getY(),
+                        limitedRotation, getGyroYaw())
+                : new ChassisSpeeds(limitedTranslation.getX(), limitedTranslation.getY(), limitedRotation);
+
         SwerveModuleState[] moduleStates = kinematics.toSwerveModuleStates(chassisSpeeds);
         setModuleStates(moduleStates);
     }
@@ -120,6 +151,10 @@ public class Swerve extends SubsystemBase {
     }
 
     public Pose2d getOdometryPosition() {
+        return odometry.getPoseMeters();
+    }
+
+    public Pose2d getCurrentPose() {
         return odometry.getPoseMeters();
     }
 
@@ -166,6 +201,7 @@ public class Swerve extends SubsystemBase {
         SmartDashboard.putNumber("gyro (deg)", getGyroYaw().getDegrees());
         SmartDashboard.putNumber("swerve odometry x", getOdometryPosition().getX());
         SmartDashboard.putNumber("swerve odometry y", getOdometryPosition().getY());
+
     }
 
     public AHRS getGyro() {

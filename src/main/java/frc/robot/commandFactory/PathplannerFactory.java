@@ -11,34 +11,28 @@ import com.pathplanner.lib.util.FileVersionException;
 
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.PrintCommand;
 
-public class PathplannerFactory extends Command {
+public class PathplannerFactory {
 
     public static Command driveToSetpointCommand(Pose2d targetPose) {
         PathConstraints constraints = new PathConstraints(
-                3.0,
-                1.0,
-                2 * Math.PI,
-                4 * Math.PI);
+                3.0, 4.0,
+                2 * Math.PI, 4 * Math.PI);
 
-        return AutoBuilder.pathfindToPose(targetPose, constraints, 0.5);
+        return AutoBuilder.pathfindToPose(targetPose, constraints, 0)
+                .andThen(() -> System.out.println("Arrived at targetPose: " + targetPose));
     }
 
-    public static Command driveThenFollowPath(String pathName) {
-        PathConstraints constraints = new PathConstraints(
-                3.0,
-                1.0,
-                2 * Math.PI,
-                4 * Math.PI);
+    public static Command driveThenFollowPath(String pathName)
+            throws FileVersionException, IOException, ParseException {
+        PathPlannerPath path;
 
-        try {
-            PathPlannerPath path = PathPlannerPath.fromPathFile(pathName);
-            return AutoBuilder.pathfindThenFollowPath(path, constraints);
-        } catch (FileVersionException | IOException | ParseException e) {
-            System.err.println("can't load PathPlanner : " + pathName);
-            e.printStackTrace();
-            return new PrintCommand("can't load PathPlanner: " + pathName);
-        }
+        PathConstraints constraints = new PathConstraints(
+                3.0, 4.0,
+                2 * Math.PI, 4 * Math.PI);
+
+        path = PathPlannerPath.fromPathFile(pathName);
+
+        return AutoBuilder.pathfindThenFollowPath(path, constraints);
     }
 }

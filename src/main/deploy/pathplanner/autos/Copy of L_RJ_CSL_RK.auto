@@ -7,13 +7,25 @@
         {
           "type": "path",
           "data": {
-            "pathName": "Forward"
+            "pathName": "L_RJ"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 0.5
           }
         },
         {
           "type": "named",
           "data": {
-            "name": "ForwardL1"
+            "name": "L4"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "CSL_RJ_REVERSE"
           }
         },
         {
@@ -25,25 +37,13 @@
         {
           "type": "path",
           "data": {
-            "pathName": "MF_CSL"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "INTAKE"
+            "pathName": "CSL_RK"
           }
         },
         {
           "type": "wait",
           "data": {
-            "waitTime": 3.0
-          }
-        },
-        {
-          "type": "path",
-          "data": {
-            "pathName": "CSL_RA"
+            "waitTime": 0
           }
         }
       ]

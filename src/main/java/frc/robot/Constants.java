@@ -44,7 +44,7 @@ public class Constants {
             RF_CONSTANTS.DriveMotorId = 11;
             RF_CONSTANTS.SteerMotorId = 12;
             RF_CONSTANTS.CANcoderId = 1;
-            RF_CONSTANTS.CANcoderOffset = 0.064453;
+            RF_CONSTANTS.CANcoderOffset = -0.493408;
         }
 
         public static final SwerveModuleConstants LF_CONSTANTS = new SwerveModuleConstants();
@@ -52,7 +52,7 @@ public class Constants {
             LF_CONSTANTS.DriveMotorId = 21;
             LF_CONSTANTS.SteerMotorId = 22;
             LF_CONSTANTS.CANcoderId = 2;
-            LF_CONSTANTS.CANcoderOffset = -0.392090;
+            LF_CONSTANTS.CANcoderOffset = -0.391846;
         }
 
         public static final SwerveModuleConstants LB_CONSTANTS = new SwerveModuleConstants();
@@ -60,7 +60,7 @@ public class Constants {
             LB_CONSTANTS.DriveMotorId = 31;
             LB_CONSTANTS.SteerMotorId = 32;
             LB_CONSTANTS.CANcoderId = 3;
-            LB_CONSTANTS.CANcoderOffset = 0.052246;
+            LB_CONSTANTS.CANcoderOffset = 0.003174;
         }
 
         public static final SwerveModuleConstants RB_CONSTANTS = new SwerveModuleConstants();
@@ -68,7 +68,7 @@ public class Constants {
             RB_CONSTANTS.DriveMotorId = 41;
             RB_CONSTANTS.SteerMotorId = 42;
             RB_CONSTANTS.CANcoderId = 4;
-            RB_CONSTANTS.CANcoderOffset = 0.045898;
+            RB_CONSTANTS.CANcoderOffset = 0.115967;
         }
 
     }
@@ -136,7 +136,7 @@ public class Constants {
 
         public static final double ARM_SPEED = 0.1;
         public static final double ARM_BACKSPEED = 0.11;
-        public static final double ARM_AUTO_SPEED = 0.2;
+        public static final double ARM_AUTO_SPEED = 0.4;
         public static final boolean ARM_CANCODER_REVERSED = true;
 
         public static final double ARM_MAX_ANGULAR_VELOCITY = 0.1;
@@ -154,7 +154,7 @@ public class Constants {
         // !INTAKE
         public static final int INTAKE_MOTOR_ID = 4;
         public static final double Intake_TIME = 2;
-        public static final double INTAKING_SPEED = -0.7;
-        public static final double PLACE_SPEED = 1.2;
+        public static final double INTAKING_SPEED = -0.9;
+        public static final double PLACE_SPEED = 1.5;
     }
 }

@@ -5,6 +5,7 @@ import com.pathplanner.lib.pathfinding.Pathfinding;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.DataLogManager;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -29,6 +30,8 @@ public class Robot extends TimedRobot {
         Pathfinding.setPathfinder(new LocalADStarAK());
         CameraServer.startAutomaticCapture();
         photonTable = NetworkTableInstance.getDefault().getTable("photonvision").getSubTable("MyCamera");
+        DataLogManager.start();
+        DataLogManager.logNetworkTables(false);
 
     }
 
@@ -39,6 +42,7 @@ public class Robot extends TimedRobot {
         boolean hasTarget = photonTable.getEntry("hasTarget").getBoolean(false);
         double targetYaw = photonTable.getEntry("targetYaw").getDouble(0.0);
         double targetPitch = photonTable.getEntry("targetPitch").getDouble(0);
+
     }
 
     @Override
@@ -52,6 +56,7 @@ public class Robot extends TimedRobot {
         if (m_autonomousCommand != null) {
             m_autonomousCommand.schedule();
         }
+
         // new PathPlannerAuto("L1").schedule();
     }
 
