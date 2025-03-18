@@ -27,6 +27,7 @@ public class TeleopSwerve extends Command {
     private boolean isRedAlliance = false; // dufault blue
 
     private final Pose2d[] blueWaypoints = {
+            // csl a~l csr
             new Pose2d(1.403, 6.980, Rotation2d.fromDegrees(-0)),
             new Pose2d(2.649, 4.199, Rotation2d.fromDegrees(0)),
             new Pose2d(2.673, 3.851, Rotation2d.fromDegrees(0)),
@@ -44,6 +45,7 @@ public class TeleopSwerve extends Command {
     };
 
     private final Pose2d[] redWaypoints = {
+            // 數據要改
             new Pose2d(6.807, 6.980, Rotation2d.fromDegrees(180)),
             new Pose2d(5.561, 4.199, Rotation2d.fromDegrees(180)),
             new Pose2d(5.537, 3.851, Rotation2d.fromDegrees(180)),

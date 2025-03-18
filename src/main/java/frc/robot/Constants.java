@@ -44,7 +44,7 @@ public class Constants {
             RF_CONSTANTS.DriveMotorId = 11;
             RF_CONSTANTS.SteerMotorId = 12;
             RF_CONSTANTS.CANcoderId = 1;
-            RF_CONSTANTS.CANcoderOffset = -0.493408;
+            RF_CONSTANTS.CANcoderOffset = 0.943408;
         }
 
         public static final SwerveModuleConstants LF_CONSTANTS = new SwerveModuleConstants();
@@ -60,7 +60,7 @@ public class Constants {
             LB_CONSTANTS.DriveMotorId = 31;
             LB_CONSTANTS.SteerMotorId = 32;
             LB_CONSTANTS.CANcoderId = 3;
-            LB_CONSTANTS.CANcoderOffset = 0.003174;
+            LB_CONSTANTS.CANcoderOffset = 0.019174;
         }
 
         public static final SwerveModuleConstants RB_CONSTANTS = new SwerveModuleConstants();
@@ -154,7 +154,7 @@ public class Constants {
         // !INTAKE
         public static final int INTAKE_MOTOR_ID = 4;
         public static final double Intake_TIME = 2;
-        public static final double INTAKING_SPEED = -0.9;
-        public static final double PLACE_SPEED = 1.5;
+        public static final double INTAKING_SPEED = 0.9;
+        public static final double PLACE_SPEED = -1.5;
     }
 }
